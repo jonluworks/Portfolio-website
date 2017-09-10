@@ -1,0 +1,62 @@
+@import "../../../assets/sass-shared";
+
+.nav-card {
+  @extend %generic-card;
+  @extend %nav-card-responsive;
+  margin: 10px;
+  flex: 1 1 auto;
+  flex-direction: column;
+  background: rgb(55,55,55);
+  border-radius: 2px;
+}
+
+.portrait {
+  width: 100%;
+  filter: grayscale(100%)
+}
+
+.nav-element {
+  cursor: pointer;
+  background-color: rgb(37,37,37);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  font-size: 1.2em;
+  border-bottom: 2px solid rgb(75,75,75);
+  transition: all .3s ease-in-out;
+}
+
+.nav-element:active, .nav-element:focus {
+  outline: none;
+}
+
+.nav-element:hover {
+  color: $accent;
+}
+
+.active-link {
+  border-left: 3px solid $accent;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  background-color: white;
+}
+
+.social-btn {
+  border-radius: 50%;
+  height: 2.5em;
+  width: 2.5em;
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.social-btn:hover {
+  background: $accent;
+}

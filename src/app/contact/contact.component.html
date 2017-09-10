@@ -1,0 +1,47 @@
+<app-card>
+  <app-card-title>Contact Me!</app-card-title>
+  <div class="contact-content">
+    <form class="contact-form"
+          novalidate
+          (ngSubmit)="onSubmit()"
+          [formGroup]="contactForm">
+      <div class="info">
+        <div class="info-input-container">
+          <input type="text" formControlName="sender"
+                 placeholder="Your name"
+                 [ngClass]="validClass('sender')">
+          <p class="error">{{senderError()}}</p>
+        </div>
+
+        <div class="spacer"></div>
+        <div class="info-input-container">
+          <input type="email"
+                 formControlName="senderEmail"
+                 placeholder="Your e-mail address"
+                 [ngClass]="validClass('senderEmail')">
+          <p class="error">{{emailError()}}</p>
+        </div>
+
+      </div>
+      <textarea class="message"
+                formControlName="message"
+                [ngClass]="validClass('message')"
+                placeholder="Your message" rows="4"></textarea>
+
+      <p class="error">{{messageError()}}</p>
+
+      <button type="submit" class="submit-btn">Send</button>
+    </form>
+    <div class="social-btn-container">
+      <a href="https://github.com/zhl146">
+        <img class="social-btn" src="../../assets/icons/square-github.svg">
+      </a>
+      <a href="https://www.linkedin.com/in/zhl146/">
+        <img class="social-btn" src="../../assets/icons/square-linkedin.svg">
+      </a>
+      <a href="https://plus.google.com/u/0/100539363718454838066">
+        <img class="social-btn" src="../../assets/icons/square-googleplus.svg">
+      </a>
+    </div>
+  </div>
+</app-card>

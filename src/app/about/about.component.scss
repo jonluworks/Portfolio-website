@@ -1,0 +1,55 @@
+@import "../../assets/sass-shared";
+
+.emphasize {
+  color: $primary;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.first-sentence {
+  font-weight: 600;
+}
+
+.about-text {
+  color: $secondary-text;
+}
+
+.skill-divider {
+  display: block;
+  margin: 50px;
+}
+
+.education-divider {
+  border-bottom: 1px solid $divider-color;
+  display: block;
+  height: 0;
+  margin: 10px 0;
+}
+
+.cv-download {
+  background-color: $secondary;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  margin: 40px auto 20px auto;
+  justify-self: center;
+  align-self: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.portrait-circle {
+  @media screen and (max-width: $mobile-break) {
+    display: block;
+  }
+  @media screen and (min-width: $mobile-break +1 ) {
+    display: none;
+  }
+  text-align: center;
+  > img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+  }
+}
+

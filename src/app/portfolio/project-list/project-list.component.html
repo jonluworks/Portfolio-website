@@ -1,0 +1,16 @@
+<app-card>
+  <div card-content>
+    <app-sub-heading>
+      My Portfolio
+    </app-sub-heading>
+
+    <div class="projects-container">
+      <app-project *ngFor="let project of projects | async; let i=index"
+                   (click)="clickedProject = i"
+                   [state]="clickState(i)"
+                   [project]="project">
+      </app-project>
+    </div>
+
+  </div>
+</app-card>

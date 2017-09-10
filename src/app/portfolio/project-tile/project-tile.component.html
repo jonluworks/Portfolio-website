@@ -1,0 +1,18 @@
+<div class="project-container"
+     [style.background-image]="'url(' + project.imgPath + ')'">
+  <div class="overlay" [ngClass]="{'overlay-up': state}">
+    <div class="project-name">
+      {{project.name}}
+      <p>{{project.description}}</p>
+    </div>
+
+    <div class="link-container">
+      <a *ngIf="project.demoLink"
+         [href]="project.demoLink"><div class="link">Demo</div></a>
+      <a *ngIf="project.gitHubLink"
+         [href]="project.gitHubLink"><div class="link">Source</div></a>
+      <a *ngIf="project.blogRoute"
+         [routerLink]="project.blogRoute"><div class="link">Blog</div></a>
+    </div>
+  </div>
+</div>

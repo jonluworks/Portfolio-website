@@ -1,0 +1,30 @@
+.education-element {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  position: relative;
+}
+
+.education-picture {
+  background-position: center center;
+  background-size: cover;
+  border-radius: 50%;
+  height: 5em;
+  margin: 25px;
+  width: 5em;
+
+}
+
+.education-text {
+  color: grey;
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.education-text > p {
+  margin: 20px;
+  width: 50%;
+}

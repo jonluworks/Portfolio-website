@@ -1,0 +1,85 @@
+// Helper function
+// Return null rather than throwing an error if index is outside list range.
+@function nth-or-null($list, $index) {
+  @return if(length($list) >= $index, nth($list, $index), null);
+}
+
+@mixin aspect-ratio($arglist... /*$width/$ratio, $height*/) {
+  $map : keywords($arglist);
+  $height: map-get($map, height) or nth-or-null($arglist, 2);
+  $width:  map-get($map, width)  or nth-or-null($arglist, 1);
+  $ratio:  map-get($map, ratio)  or if($width and $height, $width/$height, nth-or-null($arglist, 1)) or 1;
+  $padding: 1/$ratio * 100%;
+  &:before { content: ''; float:left; padding-bottom: $padding; margin-right:-100%; }
+  &:after  { content: ''; display:table; clear: both; }
+}
+
+%generic-card {
+  display: flex;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+/* two column vs 1 column layout */
+
+$mobile-break: 768px;
+$desktop-break: 960px;
+
+$nav-card-max-width: 300px;
+$content-max-width: 630px;
+$margin: 10px;
+
+%toolbar-responsive {
+  @media screen and (max-width: $mobile-break ){
+    display: flex;
+  }
+  @media screen and (min-width: $mobile-break + 1px) {
+    display: none;
+  }
+}
+
+%nav-card-responsive {
+  @media screen and (max-width: $mobile-break){
+    display: none;
+  }
+  @media screen and (min-width: $mobile-break + 1px) and (max-width: $desktop-break) {
+    width: 30%;
+    position: fixed;
+    left: 0;
+    display: flex;
+  }
+  @media screen and (min-width: $desktop-break + 1px) {
+    position: fixed;
+    width: $nav-card-max-width;
+    display: flex;
+    left: calc( (100% - #{$content-max-width} - #{$nav-card-max-width} - #{$margin})/2);
+  }
+}
+
+%content-responsive {
+  @media screen and (max-width: $mobile-break ){
+    top: 56px;
+    width: 100%;
+  }
+  @media screen and (min-width: $mobile-break + 1px) and (max-width: $desktop-break) {
+    left: calc(30% + #{$margin});
+    width: calc(70% - #{$margin});
+    padding: 10px;
+  }
+  @media screen and (min-width: $desktop-break + 1px) {
+    left: calc( (100% - #{$content-max-width} - #{$nav-card-max-width} - #{$margin})/2 + #{$nav-card-max-width} + #{$margin} );
+    width: $content-max-width;
+    padding: $margin;
+  }
+}
+
+/* color palette */
+
+$primary: #028090;
+$secondary: #3A7CA5;
+$accent: cyan;
+$warn: #D32F2F;
+$primary-text: #212121;
+$secondary-text: #757575;
+$divider-color: #BDBDBD;
